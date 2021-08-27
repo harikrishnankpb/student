@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <form action="addmark" method="POST">
+        {%csrf_token%}
+        ID    : <input type="number" name="idno" required label="id"><br>
+        Name  :<input type="text" name="name" required label="name"><br>
+        Mark 1:<input type="number" name="m1" required label="m1"><br>
+        Mark 2:<input type="number" name="m2" required label="m2"><br>
+        Mark 3:<input type="number" name="m3" required label="m3"><br>
+        <input type="submit">
+    </form>
+    {%for message in messages %}
+    <script>alert('{{ message }}'); </script>
+    {% endfor %}
+    <a href="/">Home</a>
+</body>
+
+</html>

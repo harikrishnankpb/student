@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {%if shows%}
+    <form action="viewmark" method="POST">
+        {%csrf_token%}
+        Student ID :<input type="text" name="id">
+        <input type="submit">
+    </form>
+    {%else%}
+    <table cellpadding="10" cellspacing="5" border="1">
+        <tr>
+            <th>ID NO</th>
+            <th>Name</th><br>
+            <th>Mark 1</th>
+            <th>Mark 2</th>
+            <th>Mark 3</th><br>
+            <th>Average</th>
+            <th>Grade</th>
+        </tr>
+        <tbody>
+            {%for student in students%}
+        <tr>
+            <td>{{student.idno}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.m1}}</td>
+            <td>{{student.m2}}</td>
+            <td>{{student.m3}}</td>
+            <td>{{student.average}}</td>
+            <td>{{student.grade}}</td>
+        </tr>
+        {%endfor%}
+    </tbody>
+    </table>
+    {%endif%}
+    <a href="/">Home</a>
+</body>
+
+</html>
